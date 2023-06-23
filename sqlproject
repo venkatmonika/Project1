@@ -1,0 +1,92 @@
+/*
+SQLyog - Free MySQL GUI v5.13
+Host - 5.0.22-community-nt : Database - bug
+*********************************************************************
+Server version : 5.0.22-community-nt
+*/
+SET NAMES utf8;
+
+SET SQL_MODE='';
+
+create database if not exists `bug`;
+
+USE `bug`;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO';
+
+/*Table structure for table `assigndeveloper` */
+
+DROP TABLE IF EXISTS `assigndeveloper`;
+
+CREATE TABLE `assigndeveloper` (
+  `projectid` varchar(255) default NULL,
+  `severity` varchar(20) default NULL,
+  `employename` varchar(255) default NULL,
+  `bugdetail` varchar(255) default NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `assigndeveloper` */
+
+insert into `assigndeveloper` (`projectid`,`severity`,`employename`,`bugdetail`) values ('PRO 001','High','Vel','null');
+
+/*Table structure for table `buginfo` */
+
+DROP TABLE IF EXISTS `buginfo`;
+
+CREATE TABLE `buginfo` (
+  `projectid` varchar(255) default NULL,
+  `severity` varchar(255) default NULL,
+  `bugtitle` varchar(255) default NULL,
+  `bugdescription` varchar(255) default NULL,
+  `status` varchar(20) default NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `buginfo` */
+
+insert into `buginfo` (`projectid`,`severity`,`bugtitle`,`bugdescription`,`status`) values ('PRO 001','High','WEB','HTML','complete'),('PRO 002','High','JDBC error','JAVA','pending');
+
+/*Table structure for table `developer` */
+
+DROP TABLE IF EXISTS `developer`;
+
+CREATE TABLE `developer` (
+  `username` varchar(255) default NULL,
+  `password` varchar(255) default NULL,
+  `email` varchar(255) default NULL,
+  `phoneno` varchar(255) default NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `developer` */
+
+insert into `developer` (`username`,`password`,`email`,`phoneno`) values ('vel','123','7339300411','vel@gmail.com'),('user','user','88255333480','user@gmail.com');
+
+/*Table structure for table `projectmanager` */
+
+DROP TABLE IF EXISTS `projectmanager`;
+
+CREATE TABLE `projectmanager` (
+  `username` varchar(255) default NULL,
+  `password` varchar(255) default NULL,
+  `email` varchar(255) default NULL,
+  `phoneno` varchar(255) default NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `projectmanager` */
+
+insert into `projectmanager` (`username`,`password`,`email`,`phoneno`) values ('velmurugan','1234','7339300411','vel@gmail.com');
+
+/*Table structure for table `tester` */
+
+DROP TABLE IF EXISTS `tester`;
+
+CREATE TABLE `tester` (
+  `username` varchar(255) default NULL,
+  `password` varchar(255) default NULL,
+  `email` varchar(255) default NULL,
+  `phoneno` varchar(255) default NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `tester` */
+
+insert into `tester` (`username`,`password`,`email`,`phoneno`) values ('vel','vel','vel@gmail.com','1234567890');
+
+SET SQL_MODE=@OLD_SQL_MODE;bug
